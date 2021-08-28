@@ -1,0 +1,2 @@
+# APP-DISTRIBUIDA-WEB-SERVICES
+Crear una Aplicación Web completa con acceso a datos, cuyo objetivo es poder consumir mínimo 3 Web Services de los diferentes lenguajes de progamación tratados (R - PYTHON - NODE - .NET - PHP - JAVA).   Además de poseer un Login donde solo se pueda accedar usando APIs de autentificación, elegir 3 métodos de para autentificarse como lo es Facebook - Google - GitHub -  Twitter - Instagram - Microsoft - LinkedIn
