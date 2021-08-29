@@ -1,0 +1,8 @@
+com\wladytb\loingapisws\webServices\LoginResource.class
+com\wladytb\loingapisws\filtro\filtrojson.class
+com\wladytb\loingapisws\webServices\ApplicationConfig.class
+com\wladytb\loingapisws\accesoDatos\userDAO.class
+com\wladytb\loingapisws\recursos\encriptacion.class
+com\wladytb\loingapisws\accesoDatos\conexion.class
+com\wladytb\loingapisws\accesoDatos\sentencias.class
+com\wladytb\loingapisws\modelo\user.class

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script> 
+        <link href="../css/principal.css" rel="stylesheet" type="text/css"/>
+        <script src="../js/upload-files-firebase.js" type="text/javascript"></script>
+        
+        <script src="https://kit.fontawesome.com/516538039d.js" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-storage.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="544817215974-h9h18dhu8btpp24al4gc065e882e6eft.apps.googleusercontent.com">
+
+        <script src="../js/principal.js" type="text/javascript"></script>
+        <script src="../js/facebook.js" type="text/javascript"></script>
+        <script src="../js/google.js" type="text/javascript"></script>
+        <script src="../js/gitHub.js" type="text/javascript"></script>
+        <script src="../js/callApiRest.js" type="text/javascript"></script>
+        
+        <script type="text/javascript" language="javascript">
+            verifiuserlogin();
+        </script>
+    </head>
+    <body>
+        <div class="body">
+            <div class="center-div">
+                <div class="header">
+                    <div class="logo">
+                        <i class="fas fa-cloud"></i>
+                        PowerCloud
+                    </div>
+                    <div class="search">
+                        <div class="box-input-search">
+                            <input type="text" class="imput-search" />
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <div class="foto">
+                        <img id="img-u" src="../img/user-default.png" alt=""/>
+                    </div>
+                </div>
+                <div class="main">
+                    <div class="main-menu">
+                        <div class="box-menu">
+                            <i class="uno fas fa-chevron-right"></i>
+                            <div class="item" id="mis-doc">
+                                <p>Mis Documentos</p>
+                            </div>
+                            <i class="dos fas fa-chevron-right"></i>
+                            <div class="item" id="subir-doc">
+                                <p>Subir Documentos</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="main-center">
+                        <div class="box-documentos">
+                            <table cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>N°</th><th>Nombre</th><th>Descripción</th>
+                                        <th>Tipo</th>
+                                        <th>Accion</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="box-subir">
+                            <div class="drag-area">
+                                <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+                                <div class="txt-drag-drop">Drag & Drop to Upload File</div>
+                                <span>OR</span>
+                                <button id="btn-upload">Browse File</button>
+                                <input type="file" hidden id="imput-file"/>
+                            </div>
+                        </div>
+                        <div class="archvos-subidos"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-delete">
+            <div class="md-main-center">
+                <div class="md-head">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="md-main">
+                    <label id="idDelete" style="display: none;"></label>
+                    <p>¿Está seguro que quiere eliminar el archivo: ?</p>
+                </div>
+                <div class="md-foot">
+                    <button onclick="closeModalDelete()"><i class="fas fa-times"></i> Cancelar</button>
+                    <button onclick="eliminar()"><i class="fas fa-check"></i> Aceptar</button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-update">
+            <div class="md-main-center"> 
+                <div class="mu-head">
+                    <p>Editar archivo</p>
+                    <i onclick="closeModalUpdate()" class="fas fa-times"></i>
+                </div>
+                <div class="mu-main">
+                    <div class="mu-row">
+                        <label>ID:</label>
+                        <input type="text" id="txt-id-file" disabled/>
+                    </div>
+                    <div class="mu-row">
+                        <label>Nombre:</label>
+                        <input type="text" id="txt-name-file"/>
+                    </div>
+                    <div class="mu-row">
+                        <label>Descripción:</label>
+                        <input type="text" id="txt-descripcion-file"/>
+                    </div>
+                    <div class="mu-row">
+                        <label>Extensión:</label>
+                        <input type="text" id="txt-extension-file" disabled/>
+                    </div>
+                </div>
+                <div class="md-foot">
+                    <button onclick="closeModalUpdate()"><i class="fas fa-times"></i> Cancelar</button>
+                    <button onclick="modificar()"><i class="fas fa-check"></i> Modificar</button>
+                </div>
+            </div>
+        </div>
+        <div style="display: none;" id="google" class="g-signin2" data-onsuccess="onSignIn"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id))
+                    return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+    </body>
+</html>

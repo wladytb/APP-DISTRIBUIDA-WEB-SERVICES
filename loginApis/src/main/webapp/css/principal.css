@@ -1,0 +1,360 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.body{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: RGB(223, 223, 223);
+}
+
+.center-div{
+    width: 90%;
+    background: white;
+}
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: RGB(20, 146, 113);   
+    color: white;
+}
+.logo,.foto{
+    width: 15%;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    justify-content: flex-start;
+}
+.foto{
+    justify-content: flex-end;
+}
+.logo i{
+    font-size: 30px;
+    padding: 5px;
+}
+.search {
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+.box-input-search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.search i{
+    position: absolute;
+    color: RGB(173, 181, 189);
+    padding-right: 7px;
+}
+.search i{
+    cursor: pointer;
+}
+.imput-search {
+    width: 100%;
+    outline: none;
+    border: transparent;
+    height: 30px;
+    padding-right: 30px;
+}
+.foto img{
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+}
+.main{
+    width: 100%;
+}
+.main-menu{
+    width: 100%;
+    background-color: RGB(234, 234, 234);
+    padding: 0 0 4px 0;
+}
+.box-menu{
+    display: flex;
+    align-items: center;
+    padding: 0 0 3px 0;
+}
+.box-menu i{
+    font-size: 15px;
+}
+.item{
+    padding: 0 5px;
+    cursor: pointer;
+}
+.item:hover{
+    border-bottom: white 2px solid;
+}
+.main-center{
+    width: 100%;
+}
+.box-documentos{
+    display: block;
+    overflow-y: auto;
+}
+.box-documentos table {
+    width: 100%;
+    padding: 10px;
+}
+.pdf{
+    color: RGB(236, 0, 4);
+    font-size: 25px;
+}
+td, th { 
+    padding: 3px;; 
+}
+
+td {
+    text-align: center;
+    vertical-align: middle;
+    border:RGB(223, 223, 223) 1px solid;
+    border-radius: 2px;
+}
+.name-file-td,.desc-file-td{
+    text-align: left;
+}
+th { 
+    background-color: RGB(20, 146, 113);
+    font-weight: 400;
+    color: white;
+}
+
+tr {     
+    &:nth-child(2n) { background-color: white; }
+    &:nth-child(2n+1) { background-color: RGB(223, 223, 223);}
+}
+.view,.delete,.edit{
+    padding: 3px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.view{
+    color:RGB(66, 169, 66);
+
+}
+.delete{
+    color:RGB(217, 83, 79);
+}
+.edit{
+    color:RGB(91, 192, 222);
+}
+
+.box-subir{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0 0 10px 0;
+}
+.drag-area{
+    border: 2px dashed RGB(20, 146, 113);
+    height: 300px;
+    width: 99%;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.drag-area:active{
+    border: 2px solid RGB(20, 146, 113);
+}
+.drag-area .icon{
+    font-size: 100px;
+    color: RGB(20, 146, 113);
+}
+.txt-drag-drop{
+    font-size: 25px;
+    font-weight: 500;
+}
+.drag-area span{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 15px 0;
+}
+.drag-area button{
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background: RGB(20, 146, 113);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.archvos-subidos{
+    max-height: 300px;
+    width: 99%;
+    padding: 15px 5px;
+    overflow-y: auto;
+}
+.file-upload{
+    width: 70%;
+    display: inline-block;
+    padding: 3px;
+    background: RGB(234, 234, 234);
+    border-radius: 5px;
+    border:white 3px solid;
+}
+.inform-file,.bar-progress {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.bar-progress{
+    height: 15px;
+    padding: 3px 0
+}
+.barra{
+    border-radius: 5px;
+    background-color: RGB(20, 146, 113);
+    font-size: 15px;
+    color: white;
+    font-weight: 500;
+    text-align: center;
+    transition: width .5s ease-in;
+    padding: 0 4px;
+}
+
+
+.icon-file i{
+    width: 30px;
+    padding: 5px;
+    color: RGB(14, 115, 184);
+}
+.icon-action-file{
+    font-size: 15px;
+}
+.ok-file{
+    color: RGB(96, 155, 235);
+    cursor: pointer;
+}
+.name-file p,.tamano-file p{
+    font-size: 15px;
+    margin: 0;
+    padding: 5px;
+}
+.tamano-file p{
+    font-size: 12px;
+}
+.tamano-file{
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.name-file{
+    width: 100%;
+}
+.delete-file{
+    color:RGB(255, 52, 0);
+    cursor: pointer;
+}
+
+.modal-delete{
+    top: -100%;
+}
+.modal-delete,.modal-update{
+    display: flex;
+    position: fixed;
+    left: 0px;
+    background: rgba(0,0,0,0.4);
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    transition: top .2s;
+}
+.modal-update{
+    top: -100%;
+}
+.md-main-center{
+    width: 50%;
+    background: white;
+    border-radius: 5px;
+}
+.md-head{
+    color: RGB(255, 194, 65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 8vw;
+    padding: 10px 0;
+    border-bottom: RGB(173, 181, 189) 1px solid;
+}
+.md-foot{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 15px;
+}
+.md-main p{
+    margin: 0;
+    padding: 10px;
+    font-size: 17px;
+}
+.md-foot button{
+    height: 30px;
+    width: 105px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    border-radius: 3px;
+    cursor: pointer;   
+}
+.md-foot button:first-child{
+    background: RGB(212, 57, 32);
+    border: RGB(212, 57, 32);
+}
+.md-foot button:last-child{
+    background: RGB(30, 116, 202);
+    border: RGB(30, 116, 202);
+}
+
+.mu-head{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    background: RGB(20, 146, 113);
+}
+.mu-head i{
+    margin-right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.mu-head p{
+    font-size: 26px;
+    margin: 0;
+    padding: 10px;
+}
+.mu-main{
+    display: inline-block;
+    width: 100%;
+}
+
+.mu-row{
+    display: flex;
+    width: 100%;
+    padding: 10px 0;
+    align-items: center;
+    margin-left: 10px;
+}
+.mu-row label{
+    width: 90px;
+}
+.mu-row input{
+    border: none;
+    outline: none;
+    width: 60%;
+    height: 30px;
+    border-bottom: RGB(173, 181, 189) 1px solid
+}
